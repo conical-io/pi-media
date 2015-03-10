@@ -196,7 +196,7 @@ body {
   left: 250px;
   right: 20px;
   height: 50px;
-  z-index: 200;
+  z-index: 400;
   line-height: 50px;
   background-color: white;
 }
@@ -221,6 +221,7 @@ body {
   left: 0px;
   right: 0px;
   pointer-events: none;
+  overflow: hidden;
 }
 .pm-event-holder .pm-profile-listing .profile-inner-display {
   position: absolute;
@@ -228,12 +229,87 @@ body {
   right: 3px;
   top: 3px;
   bottom: 3px;
-  background-color: rgba(215, 215, 215, 0.8);
-  padding: 10px;
   font-size: 0.9em;
   font-style: italic;
   pointer-events: none;
+  overflow: hidden;
+}
+.pm-event-holder .pm-profile-listing .profile-inner-display .profile-inner-display-color {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.5;
+  z-index: 250;
+}
+.pm-event-holder .pm-profile-listing .profile-inner-display .profile-inner-display-text {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  z-index: 300;
+  padding: 0px;
 }
 .pm-event-holder .pm-profile-listing .profile-inner-display .profile-title {
   font-weight: bold;
+}
+.pm-event-holder .pm-profile-listing .profile-inner-display .profile-detail i {
+  width: 15px;
+  text-align: center;
+}
+.pm-event-holder .pm-profile-listing .profile-inner-display .profile-detail.tag {
+  font-size: 0.9em;
+  border-top-left-radius: 3px;
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  border-top-right-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  border-bottom-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-bottom-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  padding: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 12px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 8px;
+  height: 14px;
+  line-height: 14px;
+}
+.pm-event-holder .pm-profile-listing .profile-inner-display .profile-detail.tag.spotify {
+  background-color: #2EBD59;
+  color: #fff;
+}
+.pm-event-holder .pm-profile-listing .profile-inner-display .profile-detail.tag.dropbox {
+  margin-top: 5px;
+  background-color: #1081DE;
+  color: #fff;
+}
+.pm-event-holder .pm-profile-listing .profile-inner-display .profile-detail.tag.time {
+  margin-top: 5px;
+  background-color: #1081DE;
+  color: #fff;
+}
+.pm-event-holder .pm-profile-listing .profile-inner-display .profile-detail.tag.profile {
+  background-color: #DFB20F;
+  color: #fff;
+  pointer-events: auto;
+  margin-bottom: 1px;
+  margin-top: 3px;
+  height: 14px;
+  padding-top: 1px;
+  line-height: 14px;
+}
+.pm-event-holder .pm-profile-listing .profile-inner-display .profile-detail.tag.profile.link {
+  cursor: pointer;
+}
+.pm-event-holder .pm-profile-listing .profile-inner-display .profile-detail.tag.profile.link:hover {
+  text-decoration: underline;
 }

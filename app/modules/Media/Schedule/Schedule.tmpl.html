@@ -17,8 +17,13 @@
       <div class="pm-event-holder">
         <div ng-repeat="(profileKey, profileVal) in ScheduleCtrl.scheduleDisplay[dayVal.key]" ng-class="{continued: profileVal.continued}" style="height:{{profileVal.height}}px; top:{{profileVal.top}}px" class="pm-profile-listing">
           <div class="profile-inner-display">
-            <div class="profile-title">{{profileVal.profile}}</div>
-            <div class="profile-time">{{profileVal.desc}}</div>
+            <div style="background-color: {{profileVal.profileDetails.color}}" class="profile-inner-display-color"></div>
+            <div class="profile-inner-display-text">
+              <div ng-click="ScheduleCtrl.editEvent()" ng-hide="profileVal.continued" class="profile-detail tag profile link"> <i class="fa fa-dot-circle-o"></i><span>{{profileVal.profileDetails.name}} {{profileVal.desc}}</span></div>
+              <div ng-show="profileVal.continued" class="profile-detail tag profile"> <i class="fa fa-dot-circle-o"></i><span>{{profileVal.profileDetails.name}} {{profileVal.desc}}</span></div><span ng-hide="profileVal.continued">
+                <div class="profile-detail tag spotify"> <i class="fa fa-spotify"></i><span>{{profileVal.profileDetails.spotify}}</span></div>
+                <div class="profile-detail tag dropbox"> <i class="fa fa-dropbox"></i><span>{{profileVal.profileDetails.dropboxLabel}}</span></div></span>
+            </div>
           </div>
         </div>
       </div>

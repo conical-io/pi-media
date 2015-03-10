@@ -1,4 +1,4 @@
-module.exports = function($scope){
+module.exports = function($scope, ProfileFactory, ScheduleFactory){
 	$ = require('jquery');
 	sched=this;
 	sched.fixDayTitles = false;
@@ -43,18 +43,8 @@ module.exports = function($scope){
 	sched.hours = [];
 
 
-	sched.schedule = {
-		wednesday:{
-			'09:00':{
-				profile: 'Church'
-			}
-		},
-		monday:{
-			'09:00':{
-				profile: 'Amplfied'
-			}
-		}
-	}
+	sched.schedule = {}
+	sched.schedule = ScheduleFactory.getSchedule()
 
 	sched.sortDay = function(obj){
 	    var keys = [];
@@ -133,7 +123,6 @@ module.exports = function($scope){
 	}
 
 	sched.getPreviousEvent = function(dayKey, profile){
-		console.log('begin looking for last date from ' + dayKey);
 		var previousDay = sched.previousDay(dayKey);
 		var eventsOnPreviousDay = sched.getEventsOn(previousDay);
 		var count = 0;
@@ -162,8 +151,6 @@ module.exports = function($scope){
 			newFirstEvent.height = topHeight.height;
 			newFirstEvent.top = topHeight.top;
 			newFirstEvent.autoFill = true;
-
-			console.log(newFirstEvent);
 			return newFirstEvent;
 
 
@@ -188,7 +175,6 @@ module.exports = function($scope){
 	sched.formatSchedule = function(){
 		
 		var tmpSchedule = angular.copy(sched.schedule);
-		console.log(tmpSchedule);
 
 		angular.forEach(sched.days, function(weekDay, weekDayKey) {
 			//the day object contains all the events, first we need to make sure they're in the correct order
@@ -218,20 +204,20 @@ module.exports = function($scope){
 					profile.top = topHeight.top;
 					profile.desc = moment(profile.startTime, 'HH:mm').format('H:mma');
 					tmpSchedule[weekDay.key][profile.startTime] = profile;
-
-
-
 				});
 			}else{
-				console.log('no events on ' + weekDay.key);
 				tmpSchedule[weekDay.key] = {};
 				var autoFillEvent = sched.getPreviousEvent(weekDay.key, false);
 				if(autoFillEvent){
 					tmpSchedule[weekDay.key]['autoFill'] = autoFillEvent;
 				}
 			}
+			angular.forEach(tmpSchedule[weekDay.key], function(profile, key){
+				var profDetails = ProfileFactory.getProfile(profile.profile);
+				tmpSchedule[weekDay.key][key].profileDetails = profDetails;
+			})
+
 		});
-		console.log(tmpSchedule);
 		sched.scheduleDisplay = tmpSchedule;
 	}
 
@@ -243,6 +229,17 @@ module.exports = function($scope){
 
 	sched.addEvent = function(when){
 		console.log(when);
+		var ev = {
+			day: when.day.key,
+			time: when.hour.label,
+			profile: 'amplified'
+		}
+		sched.schedule = ScheduleFactory.addEvent(ev);
+		sched.formatSchedule();
+	}
+
+	sched.editEvent = function(){
+		console.log('editing event');
 	}
 
 

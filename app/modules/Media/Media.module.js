@@ -59,10 +59,14 @@ var ProfilesController = require('./Profiles/Profiles.controller');
 var ScheduleController = require('./Schedule/Schedule.controller');
 var SettingsController = require('./Settings/Settings.controller');
 var AboutController = require('./About/About.controller');
+var ProfileFactory = require('./Services/Profile.service');
+var ScheduleFactory = require('./Services/Schedule.service');
 app
+.factory('ProfileFactory', ['$http', ProfileFactory])
+.factory('ScheduleFactory', ['$http', ScheduleFactory])
 .controller('MediaController', ['$scope', '$state', MediaController])
 .controller('NowPlayingController', [NowPlayingController])
-.controller('ProfilesController', [ProfilesController])
-.controller('ScheduleController', ['$scope', '$window', ScheduleController])
+.controller('ProfilesController', ['ProfileFactory', ProfilesController])
+.controller('ScheduleController', ['$scope', 'ProfileFactory', 'ScheduleFactory', ScheduleController])
 .controller('SettingsController', [SettingsController])
 .controller('AboutController', [AboutController])

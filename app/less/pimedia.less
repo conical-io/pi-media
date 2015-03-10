@@ -206,13 +206,17 @@ body{
 	}
 }
 .pm-event-holder{
+	pointer-events: none;
 	position: absolute;
 	left: 0;
 	right: 0;
 	top: 50px;
 	min-height: 200px;
 	.pm-profile-listing{
-		position: relative;
+		position: absolute;
+		left: 0px;
+		right: 0px;
+		pointer-events: none;
 		.profile-inner-display{
 			position: absolute;
 			left: 3px;
@@ -223,6 +227,13 @@ body{
 			padding: 10px;
 			font-size: 0.9em;
 			font-style: italic;
+			pointer-events: none;
+			.profile-title{
+				font-weight: bold;
+			}
+		}
+		&.continued{
+
 		}
 	}
 }

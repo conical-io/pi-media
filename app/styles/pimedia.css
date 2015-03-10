@@ -209,6 +209,7 @@ body {
   line-height: 50px;
 }
 .pm-event-holder {
+  pointer-events: none;
   position: absolute;
   left: 0;
   right: 0;
@@ -216,7 +217,10 @@ body {
   min-height: 200px;
 }
 .pm-event-holder .pm-profile-listing {
-  position: relative;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  pointer-events: none;
 }
 .pm-event-holder .pm-profile-listing .profile-inner-display {
   position: absolute;
@@ -228,4 +232,8 @@ body {
   padding: 10px;
   font-size: 0.9em;
   font-style: italic;
+  pointer-events: none;
+}
+.pm-event-holder .pm-profile-listing .profile-inner-display .profile-title {
+  font-weight: bold;
 }

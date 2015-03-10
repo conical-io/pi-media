@@ -15,10 +15,10 @@
       <div class="pm-day-title-spacer"> </div>
       <div ng-dblclick="ScheduleCtrl.addEvent({day: dayVal, hour: hourVal})" ng-repeat="(hourKey, hourVal) in ScheduleCtrl.hours" class="pm-hour"> </div>
       <div class="pm-event-holder">
-        <div ng-repeat="(profileKey, profileVal) in ScheduleCtrl.schedule[dayVal.key]" style="height:{{profileVal.height}}px" class="pm-profile-listing">
+        <div ng-repeat="(profileKey, profileVal) in ScheduleCtrl.scheduleDisplay[dayVal.key]" ng-class="{continued: profileVal.continued}" style="height:{{profileVal.height}}px; top:{{profileVal.top}}px" class="pm-profile-listing">
           <div class="profile-inner-display">
             <div class="profile-title">{{profileVal.profile}}</div>
-            <div class="profile-time">{{profileVal.startTime}} - {{profileVal.endTime}}</div>
+            <div class="profile-time">{{profileVal.desc}}</div>
           </div>
         </div>
       </div>

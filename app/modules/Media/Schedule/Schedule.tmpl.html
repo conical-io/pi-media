@@ -1,0 +1,27 @@
+
+<div class="pm-schedule-container">
+  <div class="pm-schedule-time-display">
+    <div ng-repeat="(hourKey, hourVal) in ScheduleCtrl.hours" class="pm-day-hours-time-display"> 
+      <div class="time-label">{{hourVal.label}}</div>
+    </div>
+  </div>
+  <div class="pm-schedule-days-display">
+    <div ng-class="{fixed: ScheduleCtrl.fixDayTitles}" class="pm-days-display">
+      <div class="pm-days-display-container">
+        <div ng-repeat="(dayKey, dayVal) in ScheduleCtrl.days" class="pm-day-title">{{dayVal.name}}</div>
+      </div>
+    </div>
+    <div ng-repeat="(dayKey, dayVal) in ScheduleCtrl.days" ng-class="{weekend: dayVal.weekend}" class="pm-schedule-day">
+      <div class="pm-day-title-spacer"> </div>
+      <div ng-dblclick="ScheduleCtrl.addEvent({day: dayVal, hour: hourVal})" ng-repeat="(hourKey, hourVal) in ScheduleCtrl.hours" class="pm-hour"> </div>
+      <div class="pm-event-holder">
+        <div ng-repeat="(profileKey, profileVal) in ScheduleCtrl.schedule[dayVal.key]" style="height:{{profileVal.height}}px" class="pm-profile-listing">
+          <div class="profile-inner-display">
+            <div class="profile-title">{{profileVal.profile}}</div>
+            <div class="profile-time">{{profileVal.startTime}} - {{profileVal.endTime}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@
 	require('angular-jwt');
 	require('angular-inflector');
 	require('angular-restmod');
+	window.moment = require('moment')
 	
 	require('../modules/Media/Media.module');
 
@@ -26,6 +27,7 @@
 	}])
 	.run(['$rootScope', '$state', '$location', function($rootScope, $state, $location){
 		$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+			$(document).off("scroll");
 			if(toState.name=='Default'){
 				//this needs to know if the user is logged in
 				event.preventDefault();

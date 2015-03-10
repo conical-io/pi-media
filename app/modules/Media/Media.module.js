@@ -63,6 +63,6 @@ app
 .controller('MediaController', ['$scope', '$state', MediaController])
 .controller('NowPlayingController', [NowPlayingController])
 .controller('ProfilesController', [ProfilesController])
-.controller('ScheduleController', [ScheduleController])
+.controller('ScheduleController', ['$scope', '$window', ScheduleController])
 .controller('SettingsController', [SettingsController])
 .controller('AboutController', [AboutController])

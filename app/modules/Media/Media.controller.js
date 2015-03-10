@@ -45,6 +45,5 @@ module.exports = function($scope, $state){
 	
 	$scope.$watch(function(){
 		self.updatePageInfo();
-
 	})
 }

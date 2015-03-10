@@ -1,6 +1,14 @@
 /*
 	color declarations
 */
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 body {
   margin: 0;
   font-family: 'Open Sans';
@@ -75,4 +83,149 @@ body {
 .pm-content {
   position: relative;
   margin-top: 90px;
+}
+.info {
+  margin: 20px;
+  padding: 5px;
+  background-color: #EAEAEA;
+  color: #444444;
+  border-top-left-radius: 3px;
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  border-top-right-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  border-bottom-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-bottom-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomleft: 3px;
+}
+.info.blue {
+  background-color: #C3F0FA;
+  color: #414647;
+}
+.pm-schedule-container {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  right: 20px;
+  min-height: 300px;
+}
+.pm-schedule-container .pm-schedule-day {
+  width: 14.2%;
+  float: left;
+  min-height: 30px;
+  position: relative;
+  -webkit-box-shadow: inset -1px 0px 0px 0px rgba(207, 207, 207, 0.5);
+  -moz-box-shadow: inset -1px 0px 0px 0px rgba(207, 207, 207, 0.5);
+  box-shadow: inset -1px 0px 0px 0px rgba(207, 207, 207, 0.5);
+}
+.pm-schedule-container .pm-schedule-day .pm-day-title-spacer {
+  font-size: 1em;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+}
+.pm-schedule-container .pm-schedule-day .pm-hour {
+  position: relative;
+  left: 0;
+  right: 0;
+  height: 30px;
+  overflow: hidden;
+  -webkit-box-shadow: inset 0px -1px 0px 0px rgba(207, 207, 207, 0.5);
+  -moz-box-shadow: inset 0px -1px 0px 0px rgba(207, 207, 207, 0.5);
+  box-shadow: inset 0px -1px 0px 0px rgba(207, 207, 207, 0.5);
+}
+.pm-schedule-container .pm-schedule-day.weekend {
+  background-color: #F2F2F2;
+}
+.pm-schedule-container .pm-schedule-days-display {
+  position: absolute;
+  left: 50px;
+  top: 0px;
+  right: 0px;
+  height: 200px;
+}
+.pm-schedule-container .pm-schedule-time-display {
+  top: 50px;
+  width: 50px;
+  float: left;
+  min-height: 30px;
+  position: relative;
+}
+.pm-schedule-container .pm-schedule-time-display .pm-day-hours-time-display {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  font-size: 0.8em;
+  position: relative;
+  left: 0;
+  right: 0;
+  height: 30px;
+}
+.pm-schedule-container .pm-schedule-time-display .pm-day-hours-time-display .time-label {
+  position: absolute;
+  height: 20px;
+  width: 50px;
+  top: -10px;
+}
+.pm-schedule-container .pm-days-display {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  height: 50px;
+  z-index: 200;
+}
+.pm-schedule-container .pm-days-display .pm-day-title {
+  height: 50px;
+  line-height: 50px;
+  float: left;
+  width: 14.2%;
+  text-align: center;
+  -webkit-box-shadow: inset -1px 0px 0px 0px rgba(207, 207, 207, 0.5), inset 0px -2px 0px 0px rgba(207, 207, 207, 0.5);
+  -moz-box-shadow: inset -1px 0px 0px 0px rgba(207, 207, 207, 0.5), inset 0px -2px 0px 0px rgba(207, 207, 207, 0.5);
+  box-shadow: inset -1px 0px 0px 0px rgba(207, 207, 207, 0.5), inset 0px -2px 0px 0px rgba(207, 207, 207, 0.5);
+  background-color: #fff;
+}
+.pm-schedule-container .pm-days-display.fixed {
+  position: fixed;
+  top: 0px;
+  left: 250px;
+  right: 20px;
+  height: 50px;
+  z-index: 200;
+  line-height: 50px;
+  background-color: white;
+}
+.pm-schedule-container .pm-days-display.fixed .pm-days-display-container {
+  position: absolute;
+  left: 70px;
+  right: 0px;
+  top: 0px;
+  height: 50px;
+  line-height: 50px;
+}
+.pm-event-holder {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50px;
+  min-height: 200px;
+}
+.pm-event-holder .pm-profile-listing {
+  position: relative;
+}
+.pm-event-holder .pm-profile-listing .profile-inner-display {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  top: 3px;
+  bottom: 3px;
+  background-color: rgba(215, 215, 215, 0.8);
+  padding: 10px;
+  font-size: 0.9em;
+  font-style: italic;
 }

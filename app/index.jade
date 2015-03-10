@@ -1,0 +1,15 @@
+doctype html
+html
+	head
+		title Pi Media
+		link(href="bower_components/normalize.css/normalize.css" type="text/css" rel="stylesheet")
+		link(href="bower_components/fontawesome/css/font-awesome.min.css" type="text/css" rel="stylesheet")
+		link(href="styles/pimedia.css" type="text/css" rel="stylesheet")
+		link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css')
+		meta(name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no")
+	body
+		div(ng-app="PiMediaApp" class="pm-AppSuperParent")
+			div(ui-view="main-view" class="main-view-port")
+
+		script(src="./scripts/bundle.js")
+		script(src="./bower_components/angular-utils-pagination/dirPagination.js")

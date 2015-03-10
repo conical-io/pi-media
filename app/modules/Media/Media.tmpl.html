@@ -1,0 +1,13 @@
+
+<div class="pm-super-parent">
+  <div class="pm-top-nav"></div>
+  <div class="pm-left-nav">
+    <ul class="pm-left-menu">
+      <li ng-repeat="(k,v) in MediaCtrl.menu" ng-class="{active: MediaCtrl.isMenuItemActive(v)}"> <a ui-sref="{{v.sref}}"><span class="menu-icon"><i class="{{v.icon}}"> </i></span><span class="menu-text">{{v.name}}</span></a></li>
+    </ul>
+  </div>
+  <div class="pm-content-superparent">
+    <div class="pm-page-title"> <span class="pm-page-icon"><i class="{{MediaCtrl.currentPageIcon}}"> </i></span><span class="pm-page-text">{{MediaCtrl.currentPageTitle}}</span></div>
+    <div ui-view="pm-content" class="pm-content"></div>
+  </div>
+</div>
